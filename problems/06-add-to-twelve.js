@@ -13,6 +13,16 @@ addToTwelve([1]); // false
 ***********************************************************************/
 
 // your code here
+let addToTwelve = (array, i=0) => {
+  if (i==array.length){
+    return false;
+  } else if ((array[i]+array[i+1])==12){
+    return true;
+  } else {
+    return addToTwelve(array, (i+1));
+  }
+
+};
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
