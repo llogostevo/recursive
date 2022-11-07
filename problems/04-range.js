@@ -10,6 +10,14 @@ range(3, 4); // [3]
 range(7, 6); // []
 ***********************************************************************/
 
+let range = (start, end, array=[]) => {
+  if (start >= end){
+    return array;
+  } else {
+    array.push(start)
+    return range(start+1, end, array)
+  }
+}
 
 // your code here
 
