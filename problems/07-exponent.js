@@ -20,8 +20,26 @@ exponent(2, -2); // 1/4 (or 0.25)
 exponent(5, 5); // 3125
 ***********************************************************************/
 
-function exponent(b, n) {
+function exponent(b, n, total=1, counter = 0, flag=false) {
   // your code here
+  if (n == counter && flag==false){
+    // this also works if n=0 as power of 0 is 1
+    return total;
+  } else if (n == counter && flag==true){
+      // this captures negative powers using the flag
+      return (1/total);
+  } else if (n>0) {
+    // captures positive n
+    total=total*b;
+    counter = counter+1;
+    return exponent(b, n, total, counter);
+  } else if (n<0) {
+    // captures negative n
+    total=total*b;
+    counter = counter-1;
+    // flag tracks that the exponent is negative
+    return exponent(b, n, total, counter, true);
+  } 
 }
   
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
